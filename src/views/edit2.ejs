@@ -1,0 +1,48 @@
+<%- include ('partials/_header'); %>
+
+<!-- FORM -->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Editar</h1>
+
+        <div style="display: inline-block;">
+            <a href="/delete/<%= org._id %>" class="edit-btn" style="color: red;">Borrar</a>
+
+        <div class=container>
+            <div class="container">
+                <div class="container">
+                    <form action="/update/<%= org._id %>" method="POST">
+                        <div>
+                            <input type="text" name="or1" placeholder="Usuario" value="<%= org.or1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or2" placeholder="Nombre completo" value="<%= org.or2 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or3" placeholder="password" value="<%= org.or3 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or4" placeholder="puesto" value="<%= org.or4 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or5" placeholder="área" value="<%= org.or5 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or6" placeholder="telefono" value="<%= org.or6 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="or7" placeholder="correo" value="<%= org.or7 %>">
+                        </div>
+                        
+                        
+                            <a href="/" class="btn">Cancel</a>
+                            <button type="submit" class="btn">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/_footer'); %>

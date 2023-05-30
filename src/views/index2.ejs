@@ -1,0 +1,72 @@
+<%- include ('partials/_header'); %>
+
+<form action="/submit" method="POST">
+  
+  <label for="or1">Organización:</label>
+  <input type="text" id="or1" name="or1" placeholder="Organización">
+  
+  <label for="or2">Nombre completo:</label>
+  <input type="text" id="or2" name="or2" placeholder="Nombre completo">
+  
+  <label for="or3">Dirección:</label>
+  <input type="text" id="or3" name="or3" placeholder="Dirección">
+  
+  <label for="or4">Ciudad:</label>
+  <input type="text" id="or4" name="or4" placeholder="Ciudad">
+  
+  <label for="or5">Estado:</label>
+  <input type="text" id="or5" name="or5" placeholder="Estado">
+  
+  <label for="or6">Pais</label>
+  <input type="text" id="or6" name="or6" placeholder="Pais">
+  
+  <label for="or7">c.p:</label>
+  <input type="text" id="or7" name="or7" placeholder="c.p">
+
+  <button class=btn type="submit">Enviar</button>
+</form>
+
+<div class="col-md-7">
+  <table class="table table-bordered table-hover">
+      <thead>
+          <tr>
+              <th>Organización</th>
+              <th>Nombre completo</th>
+              <!-- <th>password</th>
+              <th>puesto</th>
+              <th>área</th>
+              <th>telefono</th>
+              <th>correo</th> -->
+          </tr>
+      </thead>
+
+      <tbody>
+        <% for(var i = 0; i < orgs.length; i++) { %>
+        </div>
+        <td><%= orgs[i].or1 %></td>
+        <td><%= orgs[i].or2 %></td>
+        <!-- <td><%= orgs[i].or3 %></td>
+          <td><%= orgs[i].or4 %></td>
+          <td><%= orgs[i].or5 %></td>
+          <td><%= orgs[i].or6 %></td>
+          <td><%= orgs[i].or7 %></td> -->
+          <td class="plus">
+                    
+                      <a href="/edit/<%= orgs[i]._id %>" class="edit-btn">Editar</a>
+                    
+                    <!-- <div style="display: inline-block;">
+                      <a href="/delete/<%= orgs[i]._id %>" class="edit-btn" style="color: red;">Borrar</a> -->
+                  </td>
+              </tr>
+          <% } %>
+      </tbody>
+  </table>
+</div>
+
+
+
+
+      
+
+     
+  <%- include ('partials/_footer'); %>
