@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const OrgsSchema = new Schema
 ({
+    "us1": "String",
     "or1": "String",
     "or2": "String",
     "or3": "String",
