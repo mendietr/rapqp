@@ -1,0 +1,74 @@
+<%- include ('partials/_header'); %>
+
+<!-- FORM -->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Editar</h1>
+
+        <div style="display: inline-block;">
+            <a href="/par/delete/<%= pars._id %>" class="edit-btn" style="color: red;">Borrar</a>
+
+        <div class=container>
+            <div class="container">
+                <div class="container">
+                    <form action="/par/update/<pars._id %>" method="POST">
+                        <label for="us1">Usuario:</label>
+                        <div>
+                            <input type="text" id="us1" name="us1" placeholder="Usuario" value="<%= pars.us1 %>">
+                        </div>
+                        <div>
+                            <input type="text" id="or1" name="or1" placeholder="Organización" value="<%= pars.us1.or1 %>">
+                        </div>
+                        <div>
+                            <input type="text" id="cu1" name="cu1" placeholder="Cliente" value="<%= pars.us1.cu1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa1" placeholder="Num interno" value="<%= pars.pa1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa2" placeholder="Rev interna" value="<%= pars.pa2 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa3" placeholder="Fecha de rev" value="<%= pars.pa3 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa4" placeholder="Nombre de pieza" value="<%= pars.pa4 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa5" placeholder="Número de dibujo interno" value="<%= pars.pa5 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa6" placeholder="Num de pza. del cliente" value="<%= pars.pa6 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa7" placeholder="Num de dibujo del cliente" value="<%= pars.pa7 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa8" placeholder="Aplicación" value="<%= pars.pa8 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa9" placeholder="comentarios" value="<%= pars.pa9 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa10" placeholder="Nivel de ingria." value="<%= pars.pa10 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa11" placeholder="Fecha de cambio de ingria." value="<%= pars.pa11 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa12" placeholder="Historial de cambios" value="<%= pars.pa12 %>">
+                        </div>
+                        
+                        
+                        
+                            <a href="/par" class="btn">Cancel</a>
+                            <button type="submit" class="btn">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/_footer'); %>

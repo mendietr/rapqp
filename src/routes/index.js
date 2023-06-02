@@ -3,6 +3,10 @@ const router = express.Router();
 const User = require("../models/exps.js");
 const Org = require("../models/orgs.js");
 const Cus = require("../models/cust.js");
+const Par = require("../models/part.js");
+const Ope = require("../models/oper.js");
+const Chr = require("../models/chrc.js");
+const Fme = require("../models/fmea.js");
 
 const mongoose = require("mongoose")
 
@@ -22,7 +26,6 @@ router.get("/edit/:id", async (req, res) =>
 
 router.get("/org/:id", async (req, res) => {
     const { id } = req.params;
-   
     const orgs = await Org.findById(id);
     res.render("org", {id: id});
     
@@ -107,7 +110,6 @@ router.post("/cus/update/:id", async (req, res) =>
 {
     const {id} = req.params;
     await Cus.updateOne({_id: id}, req.body);
-
     res.redirect("/cust");
 });
 
@@ -119,22 +121,12 @@ router.post("/org/update/:id", async (req, res) =>
     res.redirect("/org");
 });
 
-
-
-
-
-
-
-
 router.post("/update/:id", async (req, res) =>
 {
     const {id} = req.params;
     await User.updateOne({_id: id}, req.body);
     res.redirect("/");
 });
-
-
-
 
 router.get("/delete/:id", async (req, res) =>
 {
@@ -143,10 +135,130 @@ router.get("/delete/:id", async (req, res) =>
     res.redirect("/");
 });
 
+router.get("/par", async (req, res) =>
+{
+    const pars = await Par.find();
+    console.log(pars);
+    res.render("parts", {pars});
+});
 
+router.post("/par/submit", async (req, res) =>
+{   console.log(new Par(req.body));
+    const custs = new Par(req.body);
+    await custs.save();
+    res.redirect("/par/");
+});
 
+router.post("/par/update/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    await Par.updateOne({_id: id}, req.body);
+    res.redirect("/par");
+});
 
+router.get("/par/edit/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const pars = await Par.findById(id);
+    res.render("partedit", {pars});
+});
 
+router.get("/par/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const pars = await Par.deleteOne({_id: id});
+    res.redirect("/par/");
+});
+
+router.get("/par/:id", async (req, res) => {
+    const { id } = req.params;
+    const cus = await Cus.findById(id);
+    res.render("part", {cus});
+    
+});
+
+router.get("/ope", async (req, res) =>
+{
+    const opes = await Ope.find();
+    console.log(opes);
+    res.render("opers", {opes});
+});
+
+router.post("/ope/submit", async (req, res) =>
+{   console.log(new Ope(req.body));
+    const parts = new Ope(req.body);
+    await parts.save();
+    res.redirect("/ope/");
+});
+
+router.post("/ope/update/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    await Ope.updateOne({_id: id}, req.body);
+    res.redirect("/ope");
+});
+
+router.get("/ope/edit/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const opes = await Ope.findById(id);
+    res.render("operedit", {opes});
+});
+
+router.get("/ope/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const opes = await Ope.deleteOne({_id: id});
+    res.redirect("/ope/");
+});
+
+router.get("/ope/:id", async (req, res) => {
+    const { id } = req.params;
+    const par = await Cus.findById(id);
+    res.render("oper", {par});
+});
+
+router.get("/chr", async (req, res) =>
+{
+    const chrs = await Chr.find();
+    console.log(chrs);
+    res.render("chrcs", {chrs});
+});
+
+router.post("/chr/submit", async (req, res) =>
+{   console.log(new Chr(req.body));
+    const chrcs = new Chr(req.body);
+    await chrcs.save();
+    res.redirect("/chr/");
+});
+
+router.post("/chr/update/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    await Chr.updateOne({_id: id}, req.body);
+    res.redirect("/chr");
+});
+
+router.get("/chr/edit/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const chrs = await Chr.findById(id);
+    res.render("chrcedit", {chrs});
+});
+
+router.get("/chr/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const chrs = await Chr.deleteOne({_id: id});
+    res.redirect("/chr/");
+});
+
+router.get("/chr/:id", async (req, res) => {
+    const { id } = req.params;
+    const chr = await Ope.findById(id);
+    res.render("chrc", {chr});
+    
+});
 
 
 

@@ -7,8 +7,8 @@
     <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Cliente</th>
-            <th>Nombre completo</th>
+            <th>Número de operación:</th>
+            <th>Descripción:</th>
             <!-- <th>password</th>
             <th>puesto</th>
             <th>área</th>
@@ -18,22 +18,22 @@
     </thead>
   
     <tbody>
-        <% for(var i = 0; i < cust.length; i++) { %>
+        <% for(var i = 0; i < opes.length; i++) { %>
       </div>
-      <td><%= cust[i].cu1 %></td>
-      <td><%= cust[i].cu2 %></td>
+      <td><%= opes[i].op1 %></td>
+      <td><%= opes[i].op3 %></td>
   
-      <!-- <td><%= cust[i].cu3 %></td>
-        <td><%= cust[i].cu4 %></td>
-        <td><%= cust[i].cu5 %></td>
-        <td><%= cust[i].cu6 %></td>
-        <td><%= cust[i].cu7 %></td> -->
+      <!-- <td><%= opes[i].op3 %></td>
+        <td><%= opes[i].op4 %></td>
+        <td><%= opes[i].op5 %></td>
+        <td><%= opes[i].op6 %></td>
+        <td><%= opes[i].op7 %></td> -->
       
         <td class="plus">
                   
-                    <a href="/cust/edit/<%= cust[i]._id %>" class="edit-btn">Editar</a>
+                    <a href="/ope/edit/<%= opes[i]._id %>" class="edit-btn">Editar</a>
 
-                    <a href="/par/<%= cust[i]._id %>" class="edit-btn">Registrar Componente</a>
+                    <a href="/chr/<%= opes[i]._id %>" class="edit-btn">Registrar Caracteristica</a>
                   
                   
                 </td>

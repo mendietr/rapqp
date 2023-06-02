@@ -1,41 +1,51 @@
 const express = require("express");
 const router = express.Router();
 const Cus = require("../models/cust.js");
+const Par = require("../models/part.js");
+const Ope = require("../models/oper.js");
+const Chr = require("../models/chrc.js");
+const Fme = require("../models/fmea.js");
 
-
-router.get("/cust", async (req, res) =>
+router.get("/chr", async (req, res) =>
 {
-    const custs = await Cus.find();
-    console.log(custs);
-    res.render("index2", {custs});
+    const chrs = await Chr.find();
+    console.log(chrs);
+    res.render("chrcs", {chrs});
 });
 
-router.post("/cust/submit", async (req, res) =>
-{   console.log(new Cus(req.body));
-    const custs = new Cus(req.body);
-    await custs.save();
-    res.redirect("/cust/");
+router.post("/chr/submit", async (req, res) =>
+{   console.log(new Chr(req.body));
+    const chrcs = new Chr(req.body);
+    await chrcs.save();
+    res.redirect("/chr/");
 });
 
-router.post("/cust/update/:id", async (req, res) =>
-{
-    const {id} = req.params;
-    await Cus.updateOne({_id: id}, req.body);
-    res.redirect("/cust");
-});
-
-router.get("/cust/edit/:id", async (req, res) =>
+router.post("/chr/update/:id", async (req, res) =>
 {
     const {id} = req.params;
-    const custs = await Cus.findById(id);
-    res.render("edit2", {custs});
+    await Chr.updateOne({_id: id}, req.body);
+    res.redirect("/chr");
 });
 
-router.get("/cust/delete/:id", async (req, res) =>
+router.get("/chr/edit/:id", async (req, res) =>
 {
     const {id} = req.params;
-    const custs = await Cus.deleteOne({_id: id});
-    res.redirect("/cust/");
+    const chrs = await Chr.findById(id);
+    res.render("chrcedit", {chrs});
+});
+
+router.get("/chr/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const chrs = await Chr.deleteOne({_id: id});
+    res.redirect("/chr/");
+});
+
+router.get("/chr/:id", async (req, res) => {
+    const { id } = req.params;
+    const chr = await Ope.findById(id);
+    res.render("chrc", {chr});
+    
 });
 
 

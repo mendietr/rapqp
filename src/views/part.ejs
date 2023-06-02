@@ -1,0 +1,54 @@
+<%- include ('partials/_header'); %>
+
+
+<form action="/par/submit" method="POST">
+
+  <label for="us1">Usuario:</label>
+  <input type="text" id="us1" name="us1" placeholder="Usuario" value="<%= cus && cus.us1 %>">
+
+  <label for="or1">Organización:</label>
+  <input type="text" id="or1" name="or1" placeholder="Organización" value="<%= cus && cus.or1 %>">
+  
+  <label for="cu1">Cliente:</label>
+  <input type="text" id="cu1" name="cu1" placeholder="Cliente" value="<%= cus && cus.cu1 %>">
+
+    <label for="pa1">Num interno:</label>
+    <input type="text" id="pa1" name="pa1" placeholder="Num interno">
+    
+    <label for="pa2">Rev interna:</label>
+    <input type="text" id="pa2" name="pa2" placeholder="Rev interna">
+    
+    <label for="pa3">Fecha de rev:</label>
+    <input type="text" id="pa3" name="pa3" placeholder="Fecha de rev">
+    
+    <label for="pa4">Nombre de pieza:</label>
+    <input type="text" id="pa4" name="pa4" placeholder="Nombre de pieza">
+    
+    <label for="pa5">Número de dibujo interno:</label>
+    <input type="text" id="pa5" name="pa5" placeholder="Número de dibujo interno">
+    
+    <label for="pa6">Num de pza. del cliente</label>
+    <input type="number" id="pa6" name="pa6" placeholder="Num de pza. del cliente">
+    
+    <label for="pa7">Num de dibujo del cliente:</label>
+    <input type="text" id="pa7" name="pa7" placeholder="Num de dibujo del cliente">
+
+    <label for="pa8">Aplicación:</label>
+    <input type="text" id="pa8" name="pa8" placeholder="Aplicación">
+
+    <label for="pa9">comentarios:</label>
+    <input type="text" id="pa9" name="pa9" placeholder="comentarios">
+
+    <label for="pa10">Nivel de ingria.</label>
+    <input type="text" id="pa10" name="pa10" placeholder="Nivel de ingria.">
+
+    <label for="pa11">Fecha de cambio de ingria.</label>
+    <input type="text" id="pa11" name="pa11" placeholder="Nivel de ingria.">
+
+    <label for="pa12">Historial de cambios</label>
+    <input type="text" id="pa12" name="pa12" placeholder="Nivel de ingria.">
+  
+    <button class=btn type="submit">Enviar</button>
+  </form>
+
+<%- include ('partials/_footer'); %>
