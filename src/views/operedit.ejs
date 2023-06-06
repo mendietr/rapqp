@@ -11,22 +11,22 @@
         <div class=container>
             <div class="container">
                 <div class="container">
-                    <form action="/ope/update/<opes._id %>" method="POST">
+                    <form action="/ope/update/<%= opes._id %>" method="POST">
                         <label for="us1">Usuario:</label>
                         <div>
                             <input type="text" id="us1" name="us1" placeholder="Usuario" value="<%= opes.us1 %>">
                         </div>
                         <div>
-                            <input type="text" id="or1" name="or1" placeholder="Organización" value="<%= opes.us1.or1 %>">
+                            <input type="text" id="or1" name="or1" placeholder="Organización" value="<%= opes.or1 %>">
                         </div>
                         <div>
-                            <input type="text" id="cu1" name="cu1" placeholder="Cliente" value="<%= opes.us1.cu1 %>">
+                            <input type="text" id="cu1" name="cu1" placeholder="Cliente" value="<%= opes.cu1 %>">
                         </div>
                         <div>
-                            <input type="text" name="op1" placeholder="Num interno" value="<%= opes.op1 %>">
+                            <input type="text" name="pa1" placeholder="Num interno" value="<%= opes.pa1 %>">
                         </div>
                         <div>
-                            <input type="text" name="op1" placeholder="Número de operacióno" value="<%= opes.op1 %>">
+                            <input type="text" name="op1" placeholder="Número de operación" value="<%= opes.op1 %>">
                         </div>
                         <div>
                             <input type="text" name="op2" placeholder="Maquina/estación" value="<%= opes.op2 %>">

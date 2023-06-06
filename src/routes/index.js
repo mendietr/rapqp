@@ -184,6 +184,27 @@ router.get("/ope", async (req, res) =>
     res.render("opers", {opes});
 });
 
+router.get("/flowchart", async (req, res) =>
+{
+    const opes = await Ope.find();
+    console.log(opes);
+    res.render("flowchart2", {opes});
+});
+
+router.get("/pcp", async (req, res) =>
+{
+    const opes = await Ope.find();
+    console.log(opes);
+    res.render("PCP", {opes});
+});
+
+router.get("/fmea", async (req, res) =>
+{
+    const opes = await Ope.find();
+    console.log(opes);
+    res.render("pfmea", {opes});
+});
+
 router.post("/ope/submit", async (req, res) =>
 {   console.log(new Ope(req.body));
     const parts = new Ope(req.body);
@@ -205,6 +226,13 @@ router.get("/ope/edit/:id", async (req, res) =>
     res.render("operedit", {opes});
 });
 
+router.get("/ope/edit/f/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const opes = await Ope.findById(id);
+    res.render("flowchart", {opes});
+});
+
 router.get("/ope/delete/:id", async (req, res) =>
 {
     const {id} = req.params;
@@ -214,15 +242,15 @@ router.get("/ope/delete/:id", async (req, res) =>
 
 router.get("/ope/:id", async (req, res) => {
     const { id } = req.params;
-    const par = await Cus.findById(id);
+    const par = await Par.findById(id);
     res.render("oper", {par});
 });
 
 router.get("/chr", async (req, res) =>
 {
-    const chrs = await Chr.find();
-    console.log(chrs);
-    res.render("chrcs", {chrs});
+    const chrc = await Chr.find();
+    console.log(chrc);
+    res.render("chrcs", {chrc});
 });
 
 router.post("/chr/submit", async (req, res) =>
@@ -255,8 +283,8 @@ router.get("/chr/delete/:id", async (req, res) =>
 
 router.get("/chr/:id", async (req, res) => {
     const { id } = req.params;
-    const chr = await Ope.findById(id);
-    res.render("chrc", {chr});
+    const ope = await Ope.findById(id);
+    res.render("chrc", {ope});
     
 });
 
