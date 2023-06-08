@@ -6,45 +6,54 @@ const Ope = require("../models/oper.js");
 const Chr = require("../models/chrc.js");
 const Fme = require("../models/fmea.js");
 
-router.get("/chr", async (req, res) =>
+const ruta = (Chr, chr, req, res, chrs, chrcs) => {
+    router.get("/chr", async (req, res) => {
+        const fmeas = await Chr.find();
+        console.log(fmeas);
+        res.render("chrcs", { fmeas });
+      });
+    };
+
+
+router.get("/fme", async (req, res) =>
 {
-    const chrs = await Chr.find();
-    console.log(chrs);
-    res.render("chrcs", {chrs});
+    const fmeas = await Fme.find();
+    console.log(fmeas);
+    res.render("fmeas", {fmeas});
 });
 
-router.post("/chr/submit", async (req, res) =>
-{   console.log(new Chr(req.body));
-    const chrcs = new Chr(req.body);
-    await chrcs.save();
-    res.redirect("/chr/");
+router.post("/fme/submit", async (req, res) =>
+{   console.log(new Fme(req.body));
+    const fmeas = new Fme(req.body);
+    await fmeas.save();
+    res.redirect("/fme/");
 });
 
-router.post("/chr/update/:id", async (req, res) =>
-{
-    const {id} = req.params;
-    await Chr.updateOne({_id: id}, req.body);
-    res.redirect("/chr");
-});
-
-router.get("/chr/edit/:id", async (req, res) =>
-{
-    const {id} = req.params;
-    const chrs = await Chr.findById(id);
-    res.render("chrcedit", {chrs});
-});
-
-router.get("/chr/delete/:id", async (req, res) =>
+router.post("/fme/update/:id", async (req, res) =>
 {
     const {id} = req.params;
-    const chrs = await Chr.deleteOne({_id: id});
-    res.redirect("/chr/");
+    await Fme.updateOne({_id: id}, req.body);
+    res.redirect("/fme");
 });
 
-router.get("/chr/:id", async (req, res) => {
+router.get("/fme/edit/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const fmeas = await Fme.findById(id);
+    res.render("fmeaedit", {fmeas});
+});
+
+router.get("/fme/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const fmeas = await Fme.deleteOne({_id: id});
+    res.redirect("/fme/");
+});
+
+router.get("/fme/:id", async (req, res) => {
     const { id } = req.params;
-    const chr = await Ope.findById(id);
-    res.render("chrc", {chr});
+    const fme = await Chr.findById(id);
+    res.render("fmea", {fme});
     
 });
 

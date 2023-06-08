@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const session = require('express-session');
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 require('dotenv').config();
@@ -32,6 +33,14 @@ app.set("view engine", "ejs");
 // Middlewares
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: MONGODB_URI }),
+  })
+);
 
 // Routes
 app.use("/", indexRoutes);

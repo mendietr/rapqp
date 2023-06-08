@@ -1,0 +1,54 @@
+<%- include ('partials/_header'); %>
+<div>
+    <a href="/flowchart" class="btn">Generar Diagrama de Flujo</a>
+</div>
+<div>
+    <a href="/pcp" class="btn">Generar Plan de control de proceso</a>
+</div>
+<div>
+    <a href="/fme" class="btn">Generar FMEA</a>
+</div>
+<div class="col-md-7">
+    <div>
+        <a href="/" class="btn">Volver</a>
+    </div>
+    <table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Número de FMEA:</th>
+            <th>Descripción:</th>
+            <!-- <th>password</th>
+            <th>puesto</th>
+            <th>área</th>
+            <th>telefono</th>
+            <th>correo</th> -->
+        </tr>
+    </thead>
+  
+    <tbody>
+        <% for(var i = 0; i < fmeas.length; i++) { %>
+      </div>
+      <td><%= fmeas[i].fm1 %></td>
+      <td><%= fmeas[i].fm3 %></td>
+  
+      <td><%= fmeas[i].fm3 %></td>
+        <td><%= fmeas[i].fm4 %></td>
+        <td><%= fmeas[i].fm5 %></td>
+        <td><%= fmeas[i].fm6 %></td>
+        <td><%= fmeas[i].fm7 %></td>
+      
+        <td class="plus">
+                  
+                    <a href="/fme/edit/<%= fmeas[i]._id %>" class="edit-btn">Editar</a>
+
+                    <a href="/paf/<%= fmeas[i]._id %>" class="edit-btn">Registrar plan de acción</a>
+                  
+                  
+                </td>
+            </tr>
+        <% } %>   
+        </tbody>
+    </table>
+  </div>
+
+  <%- include ('partials/_footer'); %>

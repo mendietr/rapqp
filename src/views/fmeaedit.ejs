@@ -1,0 +1,80 @@
+<%- include ('partials/_header'); %>
+
+<!-- FORM -->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Editar</h1>
+
+        <div style="display: inline-block;">
+            <a href="/fme/delete/<%= fmeas._id %>" class="edit-btn" style="color: red;">Borrar</a>
+
+        <div class=container>
+            <div class="container">
+                <div class="container">
+                    <form action="/fme/update/<%= fmeas._id %>" method="POST">
+                        <label for="us1">Usuario:</label>
+                        <div>
+                            <input type="text" id="us1" name="us1" placeholder="Usuario" value="<%= fmeas.us1 %>">
+                        </div>
+                        <div>
+                            <input type="text" id="or1" name="or1" placeholder="Organización" value="<%= fmeas.or1 %>">
+                        </div>
+                        <div>
+                            <input type="text" id="cu1" name="cu1" placeholder="Cliente" value="<%= fmeas.cu1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="pa1" placeholder="Num interno" value="<%= fmeas.pa1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="ch1" placeholder="Número de operación" value="<%= fmeas.ch1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm1" placeholder="Número de operación" value="<%= fmeas.fm1 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm2" placeholder="Maquina/estación" value="<%= fmeas.fm2 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm3" placeholder="Descripción" value="<%= fmeas.fm3 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm4" placeholder="Comentarios" value="<%= fmeas.fm4 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm5" placeholder="Tipo" value="<%= fmeas.fm5 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm6" placeholder="Próposito de la operación" value="<%= fmeas.fm6 %>">
+                        </div>
+                        <!-- <div>
+                            <input type="text" name="fm7" placeholder="Num de dibujo del cliente" value="<%= fmeas.fm7 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm8" placeholder="Aplicación" value="<%= fmeas.fm8 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm9" placeholder="comentarios" value="<%= fmeas.fm9 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm10" placeholder="Nivel de ingria." value="<%= fmeas.fm10 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm11" placeholder="Fecha de cambio de ingria." value="<%= fmeas.fm11 %>">
+                        </div>
+                        <div>
+                            <input type="text" name="fm12" placeholder="Historial de cambios" value="<%= fmeas.fm12 %>">
+                        </div> -->
+                        
+                        
+                        
+                            <a href="/fme" class="btn">Cancel</a>
+                            <button type="submit" class="btn">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/_footer'); %>

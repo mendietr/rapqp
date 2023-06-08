@@ -15,7 +15,12 @@ const fmeaSchema = new Schema
     "fm5": "String",
     "fm6": "String",
     "fm7": "String",
-    "fm8": "String"
+    "fm8": "String",
+    "fm9": "String",
+    "fm10": "String",
+    "fm11": "String",
+    "fm12": "String",
+    "fm13": "String"
   }
   );
 

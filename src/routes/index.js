@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('passport');
 const User = require("../models/exps.js");
 const Org = require("../models/orgs.js");
 const Cus = require("../models/cust.js");
@@ -205,6 +206,13 @@ router.get("/fmea", async (req, res) =>
     res.render("pfmea", {opes});
 });
 
+router.get("/psw/:id", async (req, res) =>
+{   const { id } = req.params;
+    const pars = await Par.findById(id);
+    console.log(pars);
+    res.render("psw", {pars});
+});
+
 router.post("/ope/submit", async (req, res) =>
 {   console.log(new Ope(req.body));
     const parts = new Ope(req.body);
@@ -288,7 +296,90 @@ router.get("/chr/:id", async (req, res) => {
     
 });
 
+router.get("/fme", async (req, res) =>
+{
+    const fmeas = await Fme.find();
+    console.log(fmeas);
+    res.render("fmeas", {fmeas});
+});
 
+router.post("/fme/submit", async (req, res) =>
+{   console.log(new Fme(req.body));
+    const fmeas = new Fme(req.body);
+    await fmeas.save();
+    res.redirect("/fme/");
+});
+
+router.post("/fme/update/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    await Fme.updateOne({_id: id}, req.body);
+    res.redirect("/fme");
+});
+
+router.get("/fme/edit/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const fmeas = await Fme.findById(id);
+    res.render("fmeaedit", {fmeas});
+});
+
+router.get("/fme/delete/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const fmeas = await Fme.deleteOne({_id: id});
+    res.redirect("/fme/");
+});
+
+router.get("/fme/:id", async (req, res) => {
+    const { id } = req.params;
+    const fme = await Chr.findById(id);
+    res.render("fmea", {fme});
+    
+});
+
+router.get('/signup', (req, res, next) => {
+    res.render('signup');
+  });
+  
+  router.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/profile',
+    failureRedirect: '/signup',
+    failureFlash: true
+  })); 
+  
+  router.get('/signin', (req, res, next) => {
+    res.render('signin');
+  });
+  
+  
+  router.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/profile',
+    failureRedirect: '/signin',
+    failureFlash: true
+  }));
+  
+  router.get('/profile',isAuthenticated, (req, res, next) => {
+    res.render('user');
+  });
+  
+  router.get('/logout', (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+          return next(err);
+        }
+    res.redirect('/signin');
+  });
+});
+  
+  
+  function isAuthenticated(req, res, next) {
+    if(req.isAuthenticated()) {
+      return next();
+    }
+  
+    res.redirect('/signin')
+  }
 
 
 
