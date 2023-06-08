@@ -5,6 +5,11 @@ const CustSchema = new Schema
 ({
     "us1": "String",
     "or1": "String",
+    "or2": "String",
+    "or3": "String",
+    "or4": "String",
+    "or5": "String",
+    "or7": "String",
     "cu1": "String",
     "cu2": "String",
     "cu3": "String",
