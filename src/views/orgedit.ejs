@@ -12,8 +12,9 @@
             <div class="container">
                 <div class="container">
                     <form action="/org/update/<%= orgs._id %>" method="POST">
-                        <div>
-                            <input type="text" name="us1" placeholder="Usuario" value="<%= orgs._id %>">
+                        <label for="us1">Organización:</label>
+                        <div class="label1">
+                            <input class="label1" type="text" name="us1" placeholder="Usuario" value="<%= orgs._id %>">
                         </div>
                         <div>
                             <input type="text" name="or1" placeholder="Organización" value="<%= orgs.or1 %>">
