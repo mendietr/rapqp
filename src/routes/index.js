@@ -15,6 +15,13 @@ router.get("/", async (req, res) =>
 {
     const users = await User.find();
     
+    res.render("home", {users});
+});
+
+router.get("/db", async (req, res) =>
+{
+    const users = await User.find();
+    
     res.render("users", {users});
 });
 
@@ -87,7 +94,7 @@ router.post("/submit", async (req, res) =>
 {   
     const user = new User(req.body);
     await user.save();
-    res.redirect("/");
+    res.redirect("/db");
 });
 
 
@@ -126,14 +133,28 @@ router.post("/update/:id", async (req, res) =>
 {
     const {id} = req.params;
     await User.updateOne({_id: id}, req.body);
-    res.redirect("/");
+    res.redirect("/db");
+});
+
+router.get("/dup/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const user = await User.findById(id);
+    res.render("userdup", {user});
+});
+
+router.post("/dup/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    await User.updateOne({_id: id}, req.body);
+    res.redirect("/db");
 });
 
 router.get("/delete/:id", async (req, res) =>
 {
     const {id} = req.params;
     const user = await User.deleteOne({_id: id});
-    res.redirect("/");
+    res.redirect("/db");
 });
 
 router.get("/par", async (req, res) =>
@@ -338,50 +359,69 @@ router.get("/fme/:id", async (req, res) => {
     
 });
 
-router.get('/signup', (req, res, next) => {
-    res.render('signup');
-  });
+// router.get('/signup', (req, res, next) => {
+//     res.render('signup');
+//   });
   
-  router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/signup',
-    failureFlash: true
-  })); 
+//   router.post('/signup', passport.authenticate('local-signup', {
+//     successRedirect: '/profile',
+//     failureRedirect: '/signup',
+//     failureFlash: true
+//   })); 
   
-  router.get('/signin', (req, res, next) => {
-    res.render('signin');
-  });
-  
-  
-  router.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/profile',
-    failureRedirect: '/signin',
-    failureFlash: true
-  }));
-  
-  router.get('/profile',isAuthenticated, (req, res, next) => {
-    res.render('user');
-  });
-  
-  router.get('/logout', (req, res, next) => {
-    req.logout((err) => {
-        if (err) {
-          return next(err);
-        }
-    res.redirect('/signin');
-  });
-});
+//   router.get('/signin', (req, res, next) => {
+//     res.render('signin');
+//   });
   
   
-  function isAuthenticated(req, res, next) {
-    if(req.isAuthenticated()) {
-      return next();
-    }
+//   router.post('/signin', passport.authenticate('local-signin', {
+//     successRedirect: '/profile',
+//     failureRedirect: '/signin',
+//     failureFlash: true
+//   }));
   
-    res.redirect('/signin')
-  }
+//   router.get('/profile',isAuthenticated, (req, res, next) => {
+//     res.render('user');
+//   });
+  
+//   router.get('/logout', (req, res, next) => {
+//     req.logout((err) => {
+//         if (err) {
+//           return next(err);
+//         }
+//     res.redirect('/signin');
+//   });
+// });
+  
+  
+//   function isAuthenticated(req, res, next) {
+//     if(req.isAuthenticated()) {
+//       return next();
+//     }
+  
+//     res.redirect('/signin')
+//   }
 
+router.post('/db/submit', (req, res) => {
+    const bd1 = req.body.db1; 
+    const URI ='mongodb+srv://' + bd1 +
+      ':HHnOQn2B4iVtEdOU@cluster0.pgfsbij.mongodb.net/rapqp?retryWrites=true&w=majority';
+      console.log(bd1)
+      mongoose.connect(URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      })
+        .then(() => {
+          console.log("Conexión exitosa a la base de datos");
+        })
+        .catch(error => {
+          console.log("Error al conectar a la base de datos:", error);
+        });
+        res.redirect("/db");
+    
+  });
+  
 
 
 // Exports
-module.exports = router;
+module.exports = router

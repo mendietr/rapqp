@@ -2,18 +2,15 @@
 
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Editar</h1>
+        <h1 class="text-center">Duplicar</h1>
 
         <div style="display: inline-block;">
             <a href="/delete/<%= user._id %>" class="edit-btn" style="color: red;">Borrar</a>
 
-            <div style="display: inline-block;">
-                <a href="/dup/<%= user._id %>" class="edit-btn" style="color: rgb(64, 12, 207);">Duplicar</a>
-
         <div class=container>
             <div class="container">
                 <div class="container">
-                    <form action="/update/<%= user._id %>" method="POST">
+                    <form action="/submit" method="POST">
                         <div>
                             <input type="text" name="us1" placeholder="Usuario" value="<%= user.us1 %>">
                         </div>
@@ -39,12 +36,13 @@
                             <input type="text" name="email" placeholder="correo" value="<%= user.email %>">
                         </div>
                         <div>
-                            <input type="password" name="password" placeholder="correo" value="<%= user.password %>">
+                            <input type="text" name="password" placeholder="correo" value="<%= user.password %>">
                         </div>
                         
                         
-                            <a href="/" class="btn">Cancel</a>
+                            <a href="/db" class="btn">Cancel</a>
                             <button type="submit" class="btn">Guardar</button>
+                        
                         </div>
                     </form>
                 </div>

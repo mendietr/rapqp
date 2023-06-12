@@ -7,7 +7,7 @@ require('dotenv').config();
 
 // Configuración de la aplicación Express
 const app = express();
-const indexRoutes = require("./src/routes/index2.js");
+const indexRoutes = require("./src/routes/index.js");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 const URI = process.env.MONGODB_URI;
@@ -25,7 +25,7 @@ mongoose.connect(URI, {
   });
 
   // Settings
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 
