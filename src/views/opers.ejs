@@ -42,9 +42,12 @@
                     <a href="/ope/edit/<%= opes[i]._id %>" class="edit-btn">Editar</a>
 
                     <a href="/chr/<%= opes[i]._id %>" class="edit-btn">Registrar Caracteristica</a>
-
-                    <a href="/ope/edit/f/<%= opes[i]._id %>" class="edit-btn">Flow</a>
-                  
+                    
+                    <% if (opes[i] && opes[i].op1) { %>
+                    <div>
+                        <a href="/flowchart/<%= opes[i].cu1 %>" class="edit-btn">Flow</a>
+                    </div>
+                    <% } %>
                   
                 </td>
             </tr>

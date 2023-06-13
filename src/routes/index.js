@@ -206,9 +206,9 @@ router.get("/ope", async (req, res) =>
     res.render("opers", {opes});
 });
 
-router.get("/flowchart", async (req, res) =>
-{
-    const opes = await Ope.find();
+router.get("/flowchart/:cu1", async (req, res) =>
+{   const { cu1 } = req.params;
+    const opes = await Ope.find({cu1});
     console.log(opes);
     res.render("flowchart2", {opes});
 });
