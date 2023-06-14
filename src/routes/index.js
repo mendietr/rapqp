@@ -231,7 +231,7 @@ router.get("/psw/:id", async (req, res) =>
 {   const { id } = req.params;
     const pars = await Par.findById(id);
     console.log(pars);
-    res.render("psw", {pars});
+    res.render("psw2", {pars});
 });
 
 router.post("/ope/submit", async (req, res) =>
