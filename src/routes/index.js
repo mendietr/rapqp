@@ -8,6 +8,7 @@ const Par = require("../models/part.js");
 const Ope = require("../models/oper.js");
 const Chr = require("../models/chrc.js");
 const Fme = require("../models/fmea.js");
+const Pro = require("../models/proc.js");
 
 const mongoose = require("mongoose")
 
@@ -30,6 +31,13 @@ router.get("/edit/:id", async (req, res) =>
     const {id} = req.params;
     const user = await User.findById(id);
     res.render("edit", {user});
+});
+
+router.get("/pro/view/:id", async (req, res) =>
+{
+    const {id} = req.params;
+    const procs = await Pro.findById(id);
+    res.render("proviewer", {procs});
 });
 
 router.get("/org/:id", async (req, res) => {
@@ -420,6 +428,44 @@ router.post('/db/submit', (req, res) => {
         res.redirect("/db");
     
   });
+
+  router.get("/pro", async (req, res) => {
+    const procs = await Pro.find();
+    console.log(procs);
+    res.render("procs", { procs });
+});
+
+router.post("/pro/submit", async (req, res) => {
+    console.log(new Pro(req.body));
+    const procs = new Pro(req.body);
+    await procs.save();
+    res.redirect("/pro/");
+});
+
+router.post("/pro/update/:id", async (req, res) => {
+    const { id } = req.params;
+    await Pro.updateOne({ _id: id }, req.body);
+    res.redirect("/pro");
+});
+
+router.get("/pro/edit/:id", async (req, res) => {
+    const { id } = req.params;
+    const procs = await Pro.findById(id);
+    res.render("procedit", { procs });
+});
+
+router.get("/pro/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    const procs = await Pro.deleteOne({ _id: id });
+    res.redirect("/pro/");
+});
+
+router.get("/pro/:id", async (req, res) => {
+    const { id } = req.params;
+    const pro = await Org.findById(id);
+    res.render("proc", { pro });
+});
+
   
 
 
