@@ -9,6 +9,7 @@ const Ope = require("../models/oper.js");
 const Chr = require("../models/chrc.js");
 const Fme = require("../models/fmea.js");
 const Pro = require("../models/proc.js");
+const Pcp = require("../models/pcpr.js");
 
 const mongoose = require("mongoose")
 
@@ -221,12 +222,12 @@ router.get("/flowchart/:cu1", async (req, res) =>
     res.render("flowchart2", {opes});
 });
 
-router.get("/pcp", async (req, res) =>
-{
-    const opes = await Ope.find();
-    console.log(opes);
-    res.render("PCP", {opes});
-});
+// router.get("/pcp", async (req, res) =>
+// {
+//     const opes = await Ope.find();
+//     console.log(opes);
+//     res.render("PCP", {opes});
+// });
 
 router.get("/fmea", async (req, res) =>
 {
@@ -464,6 +465,43 @@ router.get("/pro/:id", async (req, res) => {
     const { id } = req.params;
     const pro = await Org.findById(id);
     res.render("proc", { pro });
+});
+
+router.get("/pcp", async (req, res) => {
+    const pcps = await Pcp.find();
+    console.log(pcps);
+    res.render("pcprs", { pcps });
+});
+
+router.post("/pcp/submit", async (req, res) => {
+    console.log(new Pcp(req.body));
+    const pcps = new Pcp(req.body);
+    await pcps.save();
+    res.redirect("/pcp/");
+});
+
+router.post("/pcp/update/:id", async (req, res) => {
+    const { id } = req.params;
+    await Pcp.updateOne({ _id: id }, req.body);
+    res.redirect("/pcp");
+});
+
+router.get("/pcp/edit/:id", async (req, res) => {
+    const { id } = req.params;
+    const pcps = await Pcp.findById(id);
+    res.render("pcpredit", { pcps });
+});
+
+router.get("/pcp/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    const pcps = await Pcp.deleteOne({ _id: id });
+    res.redirect("/pcp/");
+});
+
+router.get("/pcp/:id", async (req, res) => {
+    const { id } = req.params;
+    const pcps = await Chr.findById(id);
+    res.render("pcpr", { pcps });
 });
 
   

@@ -15,8 +15,8 @@
     <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Número de operación:</th>
-            <th>Descripción:</th>
+            <th>Número de PCP:</th>
+            <th>Producto:</th>
             <!-- <th>password</th>
             <th>puesto</th>
             <th>área</th>
@@ -26,26 +26,26 @@
     </thead>
   
     <tbody>
-        <% for(var i = 0; i < opes.length; i++) { %>
+        <% for(var i = 0; i < pcps.length; i++) { %>
       </div>
-      <td><%= opes[i].op1 %></td>
-      <td><%= opes[i].op3 %></td>
+      <td><%= pcps[i].pc1 %></td>
+      <td><%= pcps[i].pc10 %></td>
   
-      <!-- <td><%= opes[i].op3 %></td>
-        <td><%= opes[i].op4 %></td>
-        <td><%= opes[i].op5 %></td>
-        <td><%= opes[i].op6 %></td>
-        <td><%= opes[i].op7 %></td> -->
+      <!-- <td><%= pcps[i].op3 %></td>
+        <td><%= pcps[i].op4 %></td>
+        <td><%= pcps[i].op5 %></td>
+        <td><%= pcps[i].op6 %></td>
+        <td><%= pcps[i].op7 %></td> -->
       
         <td class="plus">
                   
-                    <a href="/ope/edit/<%= opes[i]._id %>" class="edit-btn">Editar</a>
+                    <a href="/pcp/edit/<%= pcps[i]._id %>" class="edit-btn">Editar</a>
 
-                    <a href="/chr/<%= opes[i]._id %>" class="edit-btn">Registrar Caracteristica</a>
+                    <!-- <a href="/chr/<%= pcps[i]._id %>" class="edit-btn">Registrar Caracteristica</a> -->
                     
-                    <% if (opes[i] && opes[i].op1) { %>
+                    <% if (pcps[i] && pcps[i].op1) { %>
                     <div>
-                        <a href="/flowchart/<%= opes[i].cu1 %>" class="edit-btn">Flow</a>
+                        <a href="/pcp/<%= pcps[i].cu1 %>" class="edit-btn">PCP</a>
                     </div>
                     <% } %>
                   
