@@ -41,12 +41,17 @@
                   
                     <a href="/pcp/edit/<%= pcps[i]._id %>" class="edit-btn">Editar</a>
 
+                    <div>
+                        <a href="/pcpview/<%= pcps[i].pc10 %>" class="edit-btn">PCP</a>
+                    </div>
+
                     <!-- <a href="/chr/<%= pcps[i]._id %>" class="edit-btn">Registrar Caracteristica</a> -->
                     
                     <% if (pcps[i] && pcps[i].op1) { %>
                     <div>
                         <a href="/pcp/<%= pcps[i].cu1 %>" class="edit-btn">PCP</a>
                     </div>
+                    
                     <% } %>
                   
                 </td>

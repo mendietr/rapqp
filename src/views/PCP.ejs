@@ -1,5 +1,5 @@
 <div>
-    <a href="/ope" class="btn">Volver</a>
+    <a href="/pcp" class="btn">Volver</a>
 </div>
 <STYLE>
     A {text-decoration:none}
@@ -22,7 +22,7 @@
    .ad1-7 {border-color:000000;border-style:none;border-bottom-style:solid;border-bottom-width:1PX;border-left-style:solid;border-left-width:1PX;border-top-style:solid;border-top-width:1PX;border-right-style:solid;border-right-width:1PX;}
    </STYLE>
    
-   <TITLE>Crystal Report Viewer</TITLE>
+   <TITLE>Control Plan Viewer</TITLE>
    <BODY BGCOLOR="FFFFFF"LEFTMARGIN=0 TOPMARGIN=0 BOTTOMMARGIN=0 RIGHTMARGIN=0>
    
    <div style="left:643PX;top:84PX;border-color:000000;border-style:solid;border-width:0px;border-left-width:1PX;height:34PX;">
@@ -157,27 +157,27 @@
    </DIV>
    
    <DIV style="z-index:15;left:68PX;top:27PX;width:73PX;height:54PX;">
-   <img  SRC="plnea000000.jpg">
+   <!-- <img  SRC="plnea000000.jpg"> -->
    </DIV>
    <DIV style="left:202PX;top:47PX;width:847PX;height:22PX;TEXT-ALIGN:CENTER;"><span class="fc1-0">P L A N&nbsp;&nbsp;&nbsp;D E&nbsp;&nbsp;&nbsp;C O N T R O L</span></DIV>
    
-   <DIV style="left:73PX;top:101PX;width:278PX;height:14PX;"><span class="fc1-1">ISOQUALITAS INDUSTRIAL S/A</span></DIV>
+   <DIV style="left:73PX;top:101PX;width:278PX;height:14PX;"><span class="fc1-1"><%= pcps.cu2 %></span></DIV>
    
-   <DIV style="left:487PX;top:100PX;width:155PX;height:14PX;"><span class="fc1-1">03 - 23/07/2003</span></DIV>
+   <DIV style="left:487PX;top:100PX;width:155PX;height:14PX;"><span class="fc1-1"><%= pcps.pa2 %></span></DIV>
    
-   <DIV style="left:357PX;top:85PX;width:112PX;height:12PX;"><span class="fc1-2">N� de la Pieza (Cliente)</span></DIV>
+   <DIV style="left:357PX;top:85PX;width:112PX;height:12PX;"><span class="fc1-2">No. de la Pieza (Cliente)</span></DIV>
    
-   <DIV style="left:974PX;top:86PX;width:52PX;height:12PX;"><span class="fc1-3">P�gina</span></DIV>
+   <DIV style="left:974PX;top:86PX;width:52PX;height:12PX;"><span class="fc1-3">Página</span></DIV>
    
    <DIV style="left:856PX;top:91PX;width:16PX;height:13PX;TEXT-ALIGN:CENTER;"><span class="fc1-4">X</span></DIV>
    
-   <DIV style="left:879PX;top:95PX;width:72PX;height:12PX;"><span class="fc1-2">Producci�n</span></DIV>
+   <DIV style="left:879PX;top:95PX;width:72PX;height:12PX;"><span class="fc1-2">Producción</span></DIV>
    
-   <DIV style="left:754PX;top:95PX;width:87PX;height:12PX;"><span class="fc1-2">Pr�-Lanzamiento</span></DIV>
+   <DIV style="left:754PX;top:95PX;width:87PX;height:12PX;"><span class="fc1-2">Pré-Lanzamiento</span></DIV>
    
    <DIV style="left:670PX;top:95PX;width:48PX;height:12PX;"><span class="fc1-2">Prototipo</span></DIV>
    
-   <DIV style="left:357PX;top:101PX;width:122PX;height:14PX;"><span class="fc1-1">1000-0</span></DIV>
+   <DIV style="left:357PX;top:101PX;width:122PX;height:14PX;"><span class="fc1-1"><%= pcps.pa1 %></span></DIV>
    
    <DIV style="left:974PX;top:102PX;width:17PX;height:14PX;TEXT-ALIGN:RIGHT;"><span class="fc1-1">1</span></DIV>
    
@@ -187,13 +187,13 @@
    
    <DIV style="left:73PX;top:86PX;width:100PX;height:12PX;"><span class="fc1-2">Cliente</span></DIV>
    
-   <DIV style="left:487PX;top:86PX;width:132PX;height:12PX;"><span class="fc1-2">Revisi�n/Fecha del Plano</span></DIV>
+   <DIV style="left:487PX;top:86PX;width:132PX;height:12PX;"><span class="fc1-2">Revisión/Fecha del Plano</span></DIV>
    
    <DIV style="left:487PX;top:194PX;width:333PX;height:17PX;"><span class="fc1-1">&nbsp; - &nbsp;</span></DIV>
    
    <DIV style="left:74PX;top:193PX;width:403PX;height:17PX;"><span class="fc1-1">Jose Americo - 08/04/1999</span></DIV>
    
-   <DIV style="left:733PX;top:163PX;width:194PX;height:17PX;"><span class="fc1-1">Ejemplo - 00</span></DIV>
+   <DIV style="left:733PX;top:163PX;width:194PX;height:17PX;"><span class="fc1-1"><%= pcps.pa1 %>/<%= pcps.pa2 %></span></DIV>
    
    <DIV style="left:486PX;top:163PX;width:236PX;height:17PX;"><span class="fc1-1">&nbsp; - &nbsp;</span></DIV>
    
@@ -205,21 +205,21 @@
    
    <DIV style="left:486PX;top:223PX;width:513PX;height:14PX;"><span class="fc1-1">Produ��o - Mario Hern�ndez - 23/04/1999</span></DIV>
    
-   <DIV style="left:73PX;top:132PX;width:90PX;height:14PX;"><span class="fc1-1">1000/99</span></DIV>
+   <DIV style="left:73PX;top:132PX;width:90PX;height:14PX;"><span class="fc1-1"><%= pcps.pc1 %></span></DIV>
    
-   <DIV style="left:170PX;top:132PX;width:310PX;height:14PX;"><span class="fc1-1">Pino del Soporte de la Suspensi�n</span></DIV>
+   <DIV style="left:170PX;top:132PX;width:310PX;height:14PX;"><span class="fc1-1"><%= pcps.pa4 %></span></DIV>
    
-   <DIV style="left:974PX;top:132PX;width:72PX;height:14PX;"><span class="fc1-1">10/03/1999</span></DIV>
+   <DIV style="left:974PX;top:132PX;width:72PX;height:14PX;"><span class="fc1-1"><%= pcps.pc4 %></span></DIV>
    
-   <DIV style="left:974PX;top:163PX;width:71PX;height:14PX;"><span class="fc1-1">17/02/1999</span></DIV>
+   <DIV style="left:974PX;top:163PX;width:71PX;height:14PX;"><span class="fc1-1"><%= pcps.pc3 %></span></DIV>
    
-   <DIV style="left:73PX;top:163PX;width:407PX;height:14PX;"><span class="fc1-1">Ricardo,&nbsp;&nbsp;Renato, Luis Augusto, Fabiana</span></DIV>
+   <DIV style="left:73PX;top:163PX;width:407PX;height:14PX;"><span class="fc1-1"><%= pcps.pc5 %></span></DIV>
    
-   <DIV style="left:906PX;top:194PX;width:143PX;height:14PX;"><span class="fc1-1">Juan Planning</span></DIV>
+   <DIV style="left:906PX;top:194PX;width:143PX;height:14PX;"><span class="fc1-1"><%= pcps.pc2 %></span></DIV>
    
-   <DIV style="left:845PX;top:132PX;width:84PX;height:14PX;"><span class="fc1-1">0001</span></DIV>
+   <DIV style="left:845PX;top:132PX;width:84PX;height:14PX;"><span class="fc1-1"><%= pcps.cu2 %></span></DIV>
    
-   <DIV style="left:488PX;top:132PX;width:342PX;height:14PX;"><span class="fc1-1">INDUSTRIAS GESTA S.A. DE C.V.</span></DIV>
+   <DIV style="left:488PX;top:132PX;width:342PX;height:14PX;"><span class="fc1-1"><%= pcps.or2 %></span></DIV>
    
    <DIV style="left:74PX;top:210PX;width:253PX;height:12PX;"><span class="fc1-2">Otras Aprobaciones/Fecha (si se necesita)</span></DIV>
    

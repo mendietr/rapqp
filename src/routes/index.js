@@ -222,12 +222,12 @@ router.get("/flowchart/:cu1", async (req, res) =>
     res.render("flowchart2", {opes});
 });
 
-// router.get("/pcp", async (req, res) =>
-// {
-//     const opes = await Ope.find();
-//     console.log(opes);
-//     res.render("PCP", {opes});
-// });
+router.get("/pcpview/:pc10", async (req, res) =>
+{   const { pc10 } = req.params;
+    const pcps = await Pcp.find();
+    console.log(pcps);
+    res.render("PCP", {pcps});
+});
 
 router.get("/fmea", async (req, res) =>
 {
